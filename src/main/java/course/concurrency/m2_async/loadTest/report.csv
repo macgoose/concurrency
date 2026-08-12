@@ -1,0 +1,9 @@
+Executor,Type,Time (ms)
+newSingleThreadExecutor,sleep,300002
+newSingleThreadExecutor,compute,28800
+newFixedThreadPool(16),sleep,136550
+newFixedThreadPool(16),compute,5742
+newFixedThreadPool(32),sleep,69025
+newFixedThreadPool(32),compute,5898
+newCachedThreadPool,sleep,15018
+newCachedThreadPool,compute,5998
