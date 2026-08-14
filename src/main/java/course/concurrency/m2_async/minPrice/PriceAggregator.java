@@ -22,28 +22,23 @@ public class PriceAggregator {
 
     public double getMinPrice(long itemId) {
         ExecutorService executor = Executors.newFixedThreadPool(shopIds.size());
-        double minPrice = NaN;
-        List<CompletableFuture<Optional<Double>>> futures = new ArrayList<>();
 
-        for (Long shopId : shopIds) {
-            Supplier<Double> priceSupplier = () -> priceRetriever.getPrice(itemId, shopId);
-            futures.add(CompletableFuture
-                .supplyAsync(priceSupplier, executor)
+        try {
+            List<CompletableFuture<Optional<Double>>> pricesFuture = shopIds.stream().map(shopId -> CompletableFuture
+                .supplyAsync(() -> priceRetriever.getPrice(itemId, shopId), executor)
                 .thenApply(Optional::ofNullable)
-                .orTimeout(2990, TimeUnit.MILLISECONDS)
-                .exceptionally(error -> Optional.empty()));
-        }
+                .orTimeout(2995, TimeUnit.MILLISECONDS)
+                .exceptionally(ex -> Optional.empty())
+            ).toList();
 
-        for (CompletableFuture<Optional<Double>> future : futures) {
-            try {
-                Optional<Double> priceOptional = future.get();
-                if (priceOptional.isPresent())
-                    minPrice = Double.isNaN(minPrice) ? priceOptional.get() : Double.min(minPrice, priceOptional.get());
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
+            return pricesFuture.stream()
+                .map(CompletableFuture::join)
+                .filter(Optional::isPresent)
+                .mapToDouble(Optional::get)
+                .min()
+                .orElse(NaN);
+        } finally {
+            executor.shutdownNow();
         }
-
-        return minPrice;
     }
 }
