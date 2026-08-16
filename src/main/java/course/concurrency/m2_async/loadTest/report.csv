@@ -9,3 +9,5 @@ newCachedThreadPool,sleep,15027
 newCachedThreadPool,compute,5769
 ForkJoinPool.commonPool(),sleep,72037
 ForkJoinPool.commonPool(),compute,5703
+newVirtualThreadPerTaskExecutor,sleep,15023
+newVirtualThreadPerTaskExecutor,compute,5740
