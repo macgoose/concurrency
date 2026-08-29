@@ -2,21 +2,29 @@ package course.concurrency.m3_shared.auction;
 
 public class AuctionPessimistic implements Auction {
 
-    private Notifier notifier;
+    private final Notifier notifier;
+    private volatile Bid latestBid;
 
     public AuctionPessimistic(Notifier notifier) {
         this.notifier = notifier;
     }
 
-    private Bid latestBid;
-
     public boolean propose(Bid bid) {
-        if (bid.getPrice() > latestBid.getPrice()) {
-            notifier.sendOutdatedMessage(latestBid);
+        Bid outdatedBid;
+
+        synchronized (this) {
+            if (latestBid != null && bid.getPrice() <= latestBid.getPrice()) {
+                return false;
+            }
+
+            outdatedBid = latestBid;
             latestBid = bid;
-            return true;
         }
-        return false;
+
+        if (outdatedBid != null)
+            notifier.sendOutdatedMessage(outdatedBid);
+
+        return true;
     }
 
     public Bid getLatestBid() {
