@@ -1,0 +1,214 @@
+﻿8448:
+2026-08-20 10:26:16
+Full thread dump OpenJDK 64-Bit Server VM (26.0.2+10-55 mixed mode, sharing)
+                 JDK version: OpenJDK Runtime Environment (26.0.2+10) (build 26.0.2+10-55)
+
+Threads class SMR info:
+_java_thread_list=0x000001fde0d46630, length=14, elements={
+0x000001fddfcf31a0, 0x000001fddfcf3d60, 0x000001fddfcf5520, 0x000001fddfcf5f50,
+0x000001fddfcf6b00, 0x000001fddfcf7ec0, 0x000001fddfd04dd0, 0x000001fddfd32340,
+0x000001fde0d66ea0, 0x000001fde0e62690, 0x000001fde0e62e40, 0x000001fddfd00550,
+0x000001fddfd02490, 0x000001fddfcfc6d0
+}
+
+"Reference Handler" #17 [18612] daemon prio=10 os_prio=2 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf31a0 nid=18612 waiting on condition  [0x00000050060ff000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@26.0.2/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@26.0.2/Reference.java:240)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@26.0.2/Reference.java:202)
+
+   Locked ownable synchronizers:
+	- None
+
+"Finalizer" #18 [18800] daemon prio=8 os_prio=1 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf3d60 nid=18800 in Object.wait()  [0x00000050061ff000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@26.0.2/Native Method)
+	- waiting on <0x000000060cc01578> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@26.0.2/Object.java:391)
+	at java.lang.Object.wait(java.base@26.0.2/Object.java:353)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@26.0.2/ReferenceQueue.java:137)
+	at java.lang.ref.ReferenceQueue.remove(java.base@26.0.2/ReferenceQueue.java:215)
+	- locked <0x000000060cc01578> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@26.0.2/Finalizer.java:165)
+
+   Locked ownable synchronizers:
+	- None
+
+"Signal Dispatcher" #19 [20992] daemon prio=9 os_prio=2 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf5520 nid=20992 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Attach Listener" #20 [21364] daemon prio=5 os_prio=2 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf5f50 nid=21364 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Service Thread" #21 [10132] daemon prio=9 os_prio=0 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf6b00 nid=10132 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Monitor Deflation Thread" #22 [22232] daemon prio=9 os_prio=0 cpu=0.00ms elapsed=89.17s tid=0x000001fddfcf7ec0 nid=22232 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"C2 CompilerThread0" #23 [13012] daemon prio=9 os_prio=2 cpu=0.00ms elapsed=89.17s tid=0x000001fddfd04dd0 nid=13012 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+   Locked ownable synchronizers:
+	- None
+
+"C1 CompilerThread0" #33 [12744] daemon prio=9 os_prio=2 cpu=15.62ms elapsed=89.17s tid=0x000001fddfd32340 nid=12744 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+   Locked ownable synchronizers:
+	- None
+
+"Common-Cleaner" #38 [7588] daemon prio=8 os_prio=1 cpu=0.00ms elapsed=89.15s tid=0x000001fde0d66ea0 nid=7588 in Object.wait()  [0x0000005006aff000]
+   java.lang.Thread.State: TIMED_WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@26.0.2/Native Method)
+	- waiting on <0x000000060cd5a518> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@26.0.2/Object.java:391)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@26.0.2/ReferenceQueue.java:123)
+	at java.lang.ref.ReferenceQueue.remove(java.base@26.0.2/ReferenceQueue.java:201)
+	- locked <0x000000060cd5a518> (a java.lang.ref.ReferenceQueue$Lock)
+	at jdk.internal.ref.CleanerImpl.run(java.base@26.0.2/CleanerImpl.java:146)
+	at java.lang.Thread.runWith(java.base@26.0.2/Thread.java:1529)
+	at java.lang.Thread.run(java.base@26.0.2/Thread.java:1516)
+	at jdk.internal.misc.InnocuousThread.run(java.base@26.0.2/InnocuousThread.java:148)
+
+   Locked ownable synchronizers:
+	- None
+
+"Monitor Ctrl-Break" #39 [1048] daemon prio=5 os_prio=0 cpu=15.62ms elapsed=89.12s tid=0x000001fde0e62690 nid=1048 runnable  [0x0000005006bfe000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.SocketDispatcher.read0(java.base@26.0.2/Native Method)
+	at sun.nio.ch.SocketDispatcher.read(java.base@26.0.2/SocketDispatcher.java:47)
+	at sun.nio.ch.NioSocketImpl.tryRead(java.base@26.0.2/NioSocketImpl.java:254)
+	at sun.nio.ch.NioSocketImpl.implRead(java.base@26.0.2/NioSocketImpl.java:305)
+	at sun.nio.ch.NioSocketImpl.read(java.base@26.0.2/NioSocketImpl.java:360)
+	at sun.nio.ch.NioSocketImpl$1.read(java.base@26.0.2/NioSocketImpl.java:802)
+	at java.net.Socket$SocketInputStream.implRead(java.base@26.0.2/Socket.java:984)
+	at java.net.Socket$SocketInputStream.read(java.base@26.0.2/Socket.java:974)
+	at sun.nio.cs.StreamDecoder.readBytes(java.base@26.0.2/StreamDecoder.java:279)
+	at sun.nio.cs.StreamDecoder.implRead(java.base@26.0.2/StreamDecoder.java:322)
+	at sun.nio.cs.StreamDecoder.read(java.base@26.0.2/StreamDecoder.java:186)
+	- locked <0x000000060cfd7b60> (a java.io.InputStreamReader)
+	at java.io.InputStreamReader.read(java.base@26.0.2/InputStreamReader.java:183)
+	at java.io.BufferedReader.fill(java.base@26.0.2/BufferedReader.java:166)
+	at java.io.BufferedReader.readLine(java.base@26.0.2/BufferedReader.java:333)
+	- locked <0x000000060cfd7b60> (a java.io.InputStreamReader)
+	at java.io.BufferedReader.readLine(java.base@26.0.2/BufferedReader.java:400)
+	at com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:35)
+
+   Locked ownable synchronizers:
+	- <0x000000060cf69180> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+
+"Notification Thread" #40 [19248] daemon prio=9 os_prio=0 cpu=0.00ms elapsed=89.12s tid=0x000001fde0e62e40 nid=19248 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-0" #41 [17264] prio=5 os_prio=0 cpu=0.00ms elapsed=89.12s tid=0x000001fddfd00550 nid=17264 waiting for monitor entry  [0x0000005006dff000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1959)
+	- waiting to lock <0x000000060cf5ce10> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$1(DeadlockTry.java:14)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096043a40.apply(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1967)
+	- locked <0x000000060cf5cdf0> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$0(DeadlockTry.java:13)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096042a10.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@26.0.2/Thread.java:1529)
+	at java.lang.Thread.run(java.base@26.0.2/Thread.java:1516)
+
+   Locked ownable synchronizers:
+	- None
+
+"Thread-1" #42 [18012] prio=5 os_prio=0 cpu=0.00ms elapsed=89.12s tid=0x000001fddfd02490 nid=18012 waiting for monitor entry  [0x0000005006eff000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1959)
+	- waiting to lock <0x000000060cf5cdf0> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$4(DeadlockTry.java:17)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096043800.apply(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1967)
+	- locked <0x000000060cf5ce10> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$3(DeadlockTry.java:16)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096042c40.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@26.0.2/Thread.java:1529)
+	at java.lang.Thread.run(java.base@26.0.2/Thread.java:1516)
+
+   Locked ownable synchronizers:
+	- None
+
+"DestroyJavaVM" #44 [7144] prio=5 os_prio=0 cpu=78.12ms elapsed=89.12s tid=0x000001fddfcfc6d0 nid=7144 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" os_prio=2 cpu=0.00ms elapsed=89.17s tid=0x000001fddfce1f60 nid=14108 runnable  
+
+"VM Periodic Task Thread" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fddfcd2540 nid=16844 waiting on condition  
+
+"G1 Service" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fddfb9d6b0 nid=4752 runnable  
+
+"G1 Refinement Workers#0" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fddfb9cb40 nid=23380 runnable  
+
+"G1 Refine Control" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fddfb9c0c0 nid=12516 runnable  
+
+"G1 Conc#0" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fdb9440c20 nid=16352 runnable  
+
+"G1 Main Marker" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fdb943f900 nid=16596 runnable  
+
+"GC Thread#0" os_prio=2 cpu=0.00ms elapsed=89.18s tid=0x000001fdb9426f60 nid=7608 runnable  
+
+JNI global refs: 26, weak refs: 0
+
+
+Found one Java-level deadlock:
+=============================
+"Thread-0":
+  waiting to lock monitor 0x000001fde0c733f0 (object 0x000000060cf5ce10, a java.util.concurrent.ConcurrentHashMap$Node),
+  which is held by "Thread-1"
+
+"Thread-1":
+  waiting to lock monitor 0x000001fde0c72970 (object 0x000000060cf5cdf0, a java.util.concurrent.ConcurrentHashMap$Node),
+  which is held by "Thread-0"
+
+Java stack information for the threads listed above:
+===================================================
+"Thread-0":
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1959)
+	- waiting to lock <0x000000060cf5ce10> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$1(DeadlockTry.java:14)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096043a40.apply(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1967)
+	- locked <0x000000060cf5cdf0> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$0(DeadlockTry.java:13)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096042a10.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@26.0.2/Thread.java:1529)
+	at java.lang.Thread.run(java.base@26.0.2/Thread.java:1516)
+"Thread-1":
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1959)
+	- waiting to lock <0x000000060cf5cdf0> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$4(DeadlockTry.java:17)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096043800.apply(Unknown Source)
+	at java.util.concurrent.ConcurrentHashMap.compute(java.base@26.0.2/ConcurrentHashMap.java:1967)
+	- locked <0x000000060cf5ce10> (a java.util.concurrent.ConcurrentHashMap$Node)
+	at course.concurrency.m3_shared.DeadlockTry.lambda$main$3(DeadlockTry.java:16)
+	at course.concurrency.m3_shared.DeadlockTry$$Lambda/0x0000000096042c40.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@26.0.2/Thread.java:1529)
+	at java.lang.Thread.run(java.base@26.0.2/Thread.java:1516)
+
+Found 1 deadlock.
+

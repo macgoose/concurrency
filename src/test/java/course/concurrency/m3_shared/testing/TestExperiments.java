@@ -1,34 +1,50 @@
-package course.concurrency.m3_shared.testing;
+    package course.concurrency.m3_shared.testing;
 
-import org.junit.jupiter.api.RepeatedTest;
+    import org.junit.jupiter.api.RepeatedTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+    import java.util.concurrent.*;
 
-public class TestExperiments {
+    import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    // Don't change this class
-    public static class Counter {
-        private volatile int counter = 0;
+    public class TestExperiments {
 
-        public void increment() {
-            counter++;
+        // Don't change this class
+        public static class Counter {
+            private volatile int counter = 0;
+
+            public void increment() {
+                counter++;
+            }
+
+            public int get() {
+                return counter;
+            }
         }
 
-        public int get() {
-            return counter;
+        ExecutorService pool = Executors.newFixedThreadPool(20);
+
+        @RepeatedTest(100)
+        public void counterShouldFail() {
+            int iterations = 20;
+
+            Counter counter = new Counter();
+            CountDownLatch latch = new CountDownLatch(iterations);
+
+            for (int i = 0; i < iterations; i++) {
+                pool.execute(() -> {
+                    try {
+                        latch.await();
+                        counter.increment();
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                });
+
+                latch.countDown();
+            }
+
+            pool.shutdown();
+
+            assertEquals(iterations, counter.get());
         }
     }
-
-    @RepeatedTest(100)
-    public void counterShouldFail() {
-        int iterations = 5;
-
-        Counter counter = new Counter();
-
-        for (int i = 0; i < iterations; i++) {
-            counter.increment();
-        }
-
-        assertEquals(iterations, counter.get());
-    }
-}
