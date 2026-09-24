@@ -1,4 +1,4 @@
 package course.concurrency.m3_shared.immutable;
 
-public class PaymentInfo {
+public record PaymentInfo() {
 }
